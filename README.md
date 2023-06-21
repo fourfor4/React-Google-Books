@@ -1,3 +1,41 @@
+![Google Book Search screenshot](./popcorn-books.png?raw=true "Google Book Search")
+<br />
+
+[View Live](https://popcorn-books.netlify.app)
+<br />
+
+### Functions
+
+- Provide a search form to allow users to search for books by some search query.
+- Display the search result in cards.
+- Add the books what you favorite to the reading list, or remove the books from the reading list if you want.
+- Display the fav books in the Reading list.
+- Allow users to buy item by clicking enabled EYE icon.
+
+<br />
+
+### Development
+
+- Use the Google Books API to perform the search
+- Store the fav books in the localstorage
+- Implemented UI with Ant Design
+- Implemented Unit Test
+- - While implementing unit testing, faced two issues and fixed that. [Issues](https://github.com/FeloniousGru-Super/React-Google-Books/issues?q=is%3Aissue+is%3Aclosed)
+- - `npm run test -- --verbose --watchAll` to check unit testing with description
+- Hosted on Netlify
+
+<br />
+
+### Working Progress
+
+- There are the two branches
+- - `main` branch for the production version (https://popcorn-books.netlify.app)
+- - `dev` branch for the development version (https://dev-popcorn-books.netlify.app)
+- ### <b>When developing, I developed by creating several branches by expecting team work.</b>
+
+* ### <b>Please check commit logs</b>
+<br />
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
