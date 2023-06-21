@@ -9,7 +9,7 @@ const ReadingList = () => {
   const { readingList } = useContext(BooksContext);
 
   return (
-    <Content>
+    <Content data-testid="reading-list">
       <Typography.Title level={3} style={{ fontWeight: "bold" }}>
         Reading List
       </Typography.Title>

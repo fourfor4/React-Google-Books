@@ -24,6 +24,7 @@ const App: React.FC = () => {
               alignItems: "center",
               padding: 0,
             }}
+            data-testid="header"
           >
             <Navbar />
           </Header>
@@ -32,6 +33,7 @@ const App: React.FC = () => {
               padding: 24,
               background: "white",
             }}
+            data-testid="content"
           >
             <Routes>
               <Route path="/" element={<Search />} />
