@@ -1,13 +1,5 @@
 import React, { useContext } from "react";
-import {
-  Card,
-  Typography,
-  Space,
-  Image,
-  Popconfirm,
-  message,
-  Button,
-} from "antd";
+import { Card, Typography, Space, Image, Popconfirm, message } from "antd";
 import { StarOutlined, StarFilled } from "@ant-design/icons";
 import { IBook } from "../interfaces";
 import { BooksContext } from "../contexts/BooksContext";
@@ -69,11 +61,12 @@ const BookItem: React.FC<Props> = ({ book, fav }) => {
             title={addText}
             description={addDescription}
             onConfirm={handleSaveToReadingList}
-            okText="Yes"
+            okText={<span data-testid="add-confirm-btn">Yes</span>}
             cancelText="No"
           >
             <StarOutlined
               style={{ cursor: "pointer", color: "#1677ff", fontSize: 24 }}
+              data-testid="add-to-list"
             />
           </Popconfirm>
         ) : (
@@ -82,11 +75,12 @@ const BookItem: React.FC<Props> = ({ book, fav }) => {
             title={removeText}
             description={removeDescription}
             onConfirm={handleRemoveFromReadingList}
-            okText="Yes"
+            okText={<span data-testid="remove-confirm-btn">Yes</span>}
             cancelText="No"
           >
             <StarFilled
               style={{ cursor: "pointer", color: "#1677ff", fontSize: 24 }}
+              data-testid="remove-from-list"
             />
           </Popconfirm>
         )

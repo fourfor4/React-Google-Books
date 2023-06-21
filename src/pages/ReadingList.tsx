@@ -16,7 +16,7 @@ const ReadingList = () => {
       {readingList.map((book, index) => (
         <BookItem book={book} key={`book-${index}`} fav={true} />
       ))}
-      {readingList.length === 0 && <Empty />}
+      {readingList.length === 0 && <Empty data-testid="empty-state" />}
     </Content>
   );
 };
