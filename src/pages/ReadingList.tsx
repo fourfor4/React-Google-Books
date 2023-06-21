@@ -5,7 +5,7 @@ import BookItem from "../components/Book.item";
 
 const { Content } = Layout;
 
-const ReadingList = () => {
+const ReadingList: React.FC = () => {
   const { readingList } = useContext(BooksContext);
 
   return (

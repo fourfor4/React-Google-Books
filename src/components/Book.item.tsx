@@ -3,20 +3,22 @@ import { Card, Typography, Space, Image, Popconfirm, message } from "antd";
 import { StarOutlined, StarFilled } from "@ant-design/icons";
 import { IBook } from "../interfaces";
 import { BooksContext } from "../contexts/BooksContext";
+import constants from "../constants";
 
 type Props = {
   book: IBook;
   fav?: boolean;
 };
-const imgPlaceholderURL = "https://via.placeholder.com/150";
 
-const addText = "Are you sure to add this book to the reading list?";
-const addDescription = "Add this to the reading list.";
-const addSuccessMsg = "Added the book successfully.";
-
-const removeText = "Are you sure to remove this book from the reading list?";
-const removeDescription = "Remove this from the reading list.";
-const removeSuccessMsg = "Remove the book successfully.";
+const { imgPlaceholderURL, text } = constants;
+const {
+  addDescription,
+  addSuccessMsg,
+  addText,
+  removeDescription,
+  removeSuccessMsg,
+  removeText,
+} = text;
 
 const BookItem: React.FC<Props> = ({ book, fav }) => {
   const { setReadingList } = useContext(BooksContext);
