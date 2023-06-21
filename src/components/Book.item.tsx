@@ -1,12 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Card, Typography, Space, Image, Popconfirm, message } from "antd";
-import {
-  StarOutlined,
-  StarFilled,
-  EyeFilled,
-  EyeInvisibleFilled,
-} from "@ant-design/icons";
+import { StarOutlined, StarFilled, EyeFilled } from "@ant-design/icons";
 import { IBook } from "../interfaces";
 import { BooksContext } from "../contexts/BooksContext";
 import constants from "../constants";
@@ -106,12 +101,10 @@ const BookItem: React.FC<Props> = ({ book, fav }) => {
       >
         Author: {book.volumeInfo.authors?.join(", ") || "-"}
         <React.Fragment>
-          {book.saleInfo?.buyLink ? (
+          {book.saleInfo?.buyLink && (
             <Link to={book.saleInfo.buyLink} target="_blank">
               <EyeFilled />
             </Link>
-          ) : (
-            <EyeInvisibleFilled />
           )}
         </React.Fragment>
       </Typography.Title>
