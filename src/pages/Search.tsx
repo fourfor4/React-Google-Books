@@ -4,14 +4,18 @@ import axios from "axios";
 import { IBook } from "../interfaces";
 import { BooksContext } from "../contexts/BooksContext";
 import BookItem from "../components/Book.item";
-import config from "../config";
 
 const { Content } = Layout;
-const { maxResult } = config;
+const maxResult = 5;
 
 const Search: React.FC = () => {
-  const { searchQuery, setSearchQuery, searchResult, setSearchResult } =
-    useContext(BooksContext);
+  const {
+    readingList,
+    searchQuery,
+    setSearchQuery,
+    searchResult,
+    setSearchResult,
+  } = useContext(BooksContext);
 
   const [loading, setLoading] = useState<boolean>(false);
   const [searchForm] = Form.useForm();
@@ -19,6 +23,12 @@ const Search: React.FC = () => {
   useEffect(() => {
     searchForm.setFieldsValue({ query: searchQuery });
   }, [searchQuery]);
+
+  const getFavStatus = (book: IBook) => {
+    if (readingList.filter((item) => item.id === book.id).length > 0)
+      return true;
+    else return false;
+  };
 
   const handleSearchQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -31,7 +41,6 @@ const Search: React.FC = () => {
       const response = await axios.get(
         `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=${maxResult}`
       );
-      console.log(response);
       setSearchResult(response.data.items || []);
     } catch (error) {}
     setLoading(false);
@@ -67,7 +76,11 @@ const Search: React.FC = () => {
       <Content>
         <Spin spinning={loading} tip="Loading...">
           {searchResult.map((book, index) => (
-            <BookItem book={book} key={`book-${index}`} />
+            <BookItem
+              book={book}
+              key={`book-${index}`}
+              fav={getFavStatus(book)}
+            />
           ))}
           {searchResult.length === 0 && <Empty />}
         </Spin>
