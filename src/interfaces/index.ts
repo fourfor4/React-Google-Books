@@ -10,4 +10,8 @@ export interface IBook {
     };
     description?: string;
   };
+  saleInfo?: {
+    country?: string;
+    buyLink?: string;
+  };
 }
