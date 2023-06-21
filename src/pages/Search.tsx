@@ -47,7 +47,7 @@ const Search: React.FC = () => {
   };
 
   return (
-    <Content>
+    <Content data-testid="search-books">
       <Typography.Title level={3} style={{ fontWeight: "bold" }}>
         Google Books Search
       </Typography.Title>
@@ -60,7 +60,7 @@ const Search: React.FC = () => {
             { pattern: /\S/, message: "Please input any text!" },
           ]}
         >
-          <Input onChange={handleSearchQuery} />
+          <Input onChange={handleSearchQuery} data-testid="search-input" />
         </Form.Item>
         <Form.Item style={{ textAlign: "right" }}>
           <Button
@@ -68,12 +68,13 @@ const Search: React.FC = () => {
             htmlType="submit"
             loading={loading}
             disabled={loading}
+            data-testid="search-submit-btn"
           >
             Search
           </Button>
         </Form.Item>
       </Form>
-      <Content>
+      <Content data-testid="search-result-content">
         <Spin spinning={loading} tip="Loading...">
           {searchResult.map((book, index) => (
             <BookItem
@@ -82,7 +83,7 @@ const Search: React.FC = () => {
               fav={getFavStatus(book)}
             />
           ))}
-          {searchResult.length === 0 && <Empty />}
+          {searchResult.length === 0 && <Empty data-testid="empty-state" />}
         </Spin>
       </Content>
     </Content>

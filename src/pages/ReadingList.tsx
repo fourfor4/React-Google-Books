@@ -5,18 +5,18 @@ import BookItem from "../components/Book.item";
 
 const { Content } = Layout;
 
-const ReadingList = () => {
+const ReadingList: React.FC = () => {
   const { readingList } = useContext(BooksContext);
 
   return (
-    <Content>
+    <Content data-testid="reading-list">
       <Typography.Title level={3} style={{ fontWeight: "bold" }}>
         Reading List
       </Typography.Title>
       {readingList.map((book, index) => (
         <BookItem book={book} key={`book-${index}`} fav={true} />
       ))}
-      {readingList.length === 0 && <Empty />}
+      {readingList.length === 0 && <Empty data-testid="empty-state" />}
     </Content>
   );
 };
